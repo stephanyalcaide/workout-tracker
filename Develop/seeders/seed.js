@@ -1,11 +1,7 @@
 const mongoose = require('mongoose');
 const db = require('../models');
 
-mongoose.connect('mongodb://localhost/workout', {
-  useNewUrlParser: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-});
+
 
 const workoutSeed = [
   {
@@ -14,9 +10,9 @@ const workoutSeed = [
       {
         type: 'resistance',
         name: 'Bicep Curl',
-        duration: 20,
+        duration: 30,
         weight: 100,
-        reps: 10,
+        reps: 11,
         sets: 4,
       },
     ],
@@ -28,7 +24,7 @@ const workoutSeed = [
         type: 'resistance',
         name: 'Lateral Pull',
         duration: 20,
-        weight: 300,
+        weight: 30,
         reps: 10,
         sets: 4,
       },
@@ -40,8 +36,8 @@ const workoutSeed = [
       {
         type: 'resistance',
         name: 'Push Press',
-        duration: 25,
-        weight: 185,
+        duration: 30,
+        weight: 200,
         reps: 8,
         sets: 4,
       },
@@ -54,7 +50,7 @@ const workoutSeed = [
         type: 'cardio',
         name: 'Running',
         duration: 25,
-        distance: 4,
+        distance: 6,
       },
     ],
   },
@@ -65,9 +61,9 @@ const workoutSeed = [
         type: 'resistance',
         name: 'Bench Press',
         duration: 20,
-        weight: 285,
-        reps: 10,
-        sets: 4,
+        weight: 200,
+        reps: 15,
+        sets: 10,
       },
     ],
   },
@@ -75,8 +71,8 @@ const workoutSeed = [
     day: new Date(new Date().setDate(new Date().getDate() - 4)),
     exercises: [
       {
-        type: 'resistance',
-        name: 'Bench Press',
+        type: 'resitance typeof training',
+        name: 'The Bench Press',
         duration: 20,
         weight: 300,
         reps: 10,
@@ -88,12 +84,12 @@ const workoutSeed = [
     day: new Date(new Date().setDate(new Date().getDate() - 3)),
     exercises: [
       {
-        type: 'resistance',
+        type: 'resitance typeof training',
         name: 'Quad Press',
         duration: 30,
         weight: 300,
         reps: 10,
-        sets: 4,
+        sets: 6,
       },
     ],
   },
@@ -101,7 +97,7 @@ const workoutSeed = [
     day: new Date(new Date().setDate(new Date().getDate() - 2)),
     exercises: [
       {
-        type: 'resistance',
+        type: 'resitance typeof training',
         name: 'Bench Press',
         duration: 20,
         weight: 300,
@@ -114,12 +110,12 @@ const workoutSeed = [
     day: new Date(new Date().setDate(new Date().getDate() - 1)),
     exercises: [
       {
-        type: 'resistance',
+        type: 'resitance typeof training',
         name: 'Military Press',
         duration: 20,
         weight: 300,
         reps: 10,
-        sets: 4,
+        sets: 5,
       },
     ],
   },
@@ -131,7 +127,9 @@ db.Workout.deleteMany({})
     console.log(data.result.n + ' records inserted!');
     process.exit(0);
   })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+mongoose.connect('mongodb://localhost/workout', {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+});
+  
